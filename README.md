@@ -63,7 +63,7 @@ sudo chmod -R 755 /opt/leanote
 **注意加上 -R 递归**'
 ### sogou fcitx 全家桶
 ```
-yaourt -S fcitx-im fcitx-configtool fcitx-sogoupinyin # 好像 pacman也可以
+pacman -S fcitx-im fcitx-configtool fcitx-sogoupinyin # yaourt 也可以  pacman 二进制更快
 ```
 
 ### vim 没有 sudo时候强制保存
@@ -96,7 +96,7 @@ yaourt -S fcitx-im fcitx-configtool fcitx-sogoupinyin # 好像 pacman也可以
     "vim.disableAnnoyingNeovimMessage": true
 }
 ```
-### 自动重试 # 有时间重新把 leanote 库笔记挪到 Github
+### 自动重试  有时间重新把 leanote 库笔记全部挪到 Github
 ```
 import random
 from retrying import retry
@@ -155,11 +155,13 @@ path = /
 sudo smbpasswd -a username 添加用户
 sudo smbpasswd username //修改密码
 # 重启 suso systemctl restart nmbd.service
-smbd.service 和 nmbd.service  **服务名叫nmbd 不叫 samba.service**
+smbd.service 和 nmbd.service
 ```
+**服务名叫 nmbd 和 smbd 不叫 samba.service**
+
 ### 垃圾桶 pwd
 ```
-/home/huang/.local/share/Trash/files
+$HOME/.local/share/Trash/files
 ```
 ### gunicorn / uwsgi 开启
 ```
@@ -193,7 +195,19 @@ ffmpeg -ss 00:00:00 -t 00:00:30 -i test.mp4 -vcodec copy -acodec copy output.mp4
 echo "set completion-ignore-case on">>~/.inputrc 
 ```
 
-
+### 清洗标签
+```
+from bs4 import BeautifulSoup
+def remove(soup):
+    for tag in soup():
+        tag.attrs = None
+    return soup
+doc = '<p class="whatever">junk</p><div style="background: yellow;" id="foo" class="blah">blah</div>'
+print(doc)
+soup = BeautifulSoup(doc,'html.parser')
+remove(soup)
+print(soup)
+```
 
 
 
