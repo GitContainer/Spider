@@ -32,6 +32,7 @@ PS1 修改 zsh /bash 前缀 echo $PS1 出来按着模板填
 ### gnome 修改一周第一天
 ```
 $sudo vim /usr/share/i18n/locales/chosen_locale
+```
 
 ```
 LC_TIME
@@ -39,12 +40,16 @@ LC_TIME
 week    7;19971130;5
 first_weekday   2
 first_workday   2
-`
-**记得刷新gen** ``
+```
+
+**记得刷新gen然后注销生效**
+
 ```
 sudo locale-gen
 ```
-注销后方才生效
+
+
+
 ### proxychain4 命令行强制走 sock5 代理
 ```
 sudo vim /etc/proxychains.conf
@@ -62,6 +67,8 @@ yaourt -S fcitx-im fcitx-configtool fcitx-sogoupinyin # 好像 pacman也可以
 ```
 
 ### vim 没有 sudo时候强制保存
+>此命令是把当前文件（即%）作为stdin传给sudo tee命令来执行。说起来挺绕口，其实就是：用sudo强制保存。
+>有时候在自己机器上折腾的时候需要更改一些系统的conf文件，编辑了半天结果发现vim不是以su打开的，无奈只能不保存退出，重新编辑。有这个命令之后能节省不少>误操作带来的事件损耗。
 ```
 :w !sudo tee %
 ```
@@ -150,6 +157,43 @@ sudo smbpasswd username //修改密码
 # 重启 suso systemctl restart nmbd.service
 smbd.service 和 nmbd.service  **服务名叫nmbd 不叫 samba.service**
 ```
+### 垃圾桶 pwd
+```
+/home/huang/.local/share/Trash/files
+```
+### gunicorn / uwsgi 开启
+```
+nohup gunicorn blogproject.wsgi:application -b 127.0.0.1:8000 --reload &
+```
+
+### pyenv 依赖 zshenv 
+```
+# 依赖
+sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils
+
+# 写入
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshenv
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshenv
+echo 'eval "$(pyenv init -)"' >> ~/.zshenv
+exec $SHELL
+```
+
+#### ffmpeg 命令
+```
+ffmpeg -ss 00:00:00 -t 00:00:30 -i test.mp4 -vcodec copy -acodec copy output.mp4
+可以不写 ss 或者 t
+-ss 指定从什么时间开始 
+-t 指定需要截取多长时间 
+-i 指定输入文件 
+绝对时间用-to，相对时间用-t:
+```
+### bash 大小写不敏感
+```
+echo "set completion-ignore-case on">>~/.inputrc 
+```
+
+
 
 
 
