@@ -10,7 +10,7 @@ soup = BeautifulSoup(doc,'html.parser')
 remove(soup)
 print(soup)
 ```
-# Tips
+# 好记性不如 Markdown
 
 ###  为什么 Arch 的更新命令叫做 -Syu
 
