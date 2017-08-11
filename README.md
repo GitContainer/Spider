@@ -12,6 +12,10 @@ print(soup)
 ```
 # 好记性不如 Markdown
 
+### 压缩文件乱码解压
+- Ubuntu 上使用 unar ，自动识别编码
+- Arch 使用 unzip-natspec 替代 unzip包，用法同 unzip 一样，unzip xxx.zip
+
 ###  为什么 Arch 的更新命令叫做 -Syu
 
 从来很熟悉，但一直都没太搞明白的就是 Arch 包管理 Pacman 更新系统的指令叫做 Pacman -Syu，直到前几天翻译了下 Pacman 的文档，才搞明白.
