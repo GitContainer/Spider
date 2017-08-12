@@ -91,13 +91,9 @@ pacman -S fcitx-im fcitx-configtool fcitx-sogoupinyin # yaourt 也可以  pacma
         "--disable=C0111"
     ],
     "editor.minimap.enabled": false,
-    "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "Atom One Dark",
-    "workbench.sideBar.location": "left",
     "window.zoomLevel": 0,
-    "editor.fontFamily": "'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
-    "workbench.iconTheme": "vscode-icons",
-    "vim.disableAnnoyingNeovimMessage": true
+    "workbench.iconTheme": "vscode-icons"
 }
 ```
 ### 自动重试  有时间重新把 leanote 库笔记全部挪到 Github
